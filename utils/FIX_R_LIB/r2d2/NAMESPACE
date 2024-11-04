@@ -1,0 +1,13 @@
+importFrom(graphics, polygon)
+importFrom(grDevices, contourLines)
+importFrom(KernSmooth, dpik, bkde2D)
+importFrom(MASS, bandwidth.nrd, kde2d)
+importFrom(sp, over, Polygon, Polygons, SpatialPoints, SpatialPolygons)
+
+export(conf2d, conf2d.default, conf2d.formula, conf2d_int,
+       freq2d, freq2d.default, freq2d.formula)
+
+S3method(conf2d, default)
+S3method(conf2d, formula)
+S3method(freq2d, default)
+S3method(freq2d, formula)

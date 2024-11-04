@@ -1,0 +1,6 @@
+[console_scripts]
+downloadcmd = NDATools.clientscripts.downloadcmd:main
+integration_tests = tests.run_integration_tests:main
+unit_tests = tests.run_unit_tests:main
+vtcmd = NDATools.clientscripts.vtcmd:main
+

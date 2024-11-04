@@ -1,0 +1,208 @@
+Metadata-Version: 2.1
+Name: nilearn
+Version: 0.10.0
+Summary: Statistical learning for neuroimaging in Python
+Home-page: https://nilearn.github.io
+Maintainer: Gael Varoquaux
+Maintainer-email: gael.varoquaux@normalesup.org
+License: new BSD
+Download-URL: https://nilearn.github.io
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+License-File: LICENSE
+License-File: AUTHORS.rst
+Requires-Dist: joblib (>=1.0.0)
+Requires-Dist: lxml
+Requires-Dist: nibabel (>=3.2.0)
+Requires-Dist: numpy (>=1.19.0)
+Requires-Dist: pandas (>=1.1.5)
+Requires-Dist: requests (>=2.25.0)
+Requires-Dist: scikit-learn (>=1.0.0)
+Requires-Dist: scipy (>=1.6.0)
+Provides-Extra: dev
+Requires-Dist: matplotlib (>=3.3.0) ; extra == 'dev'
+Requires-Dist: kaleido ; extra == 'dev'
+Requires-Dist: plotly ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: furo ; extra == 'dev'
+Requires-Dist: memory-profiler ; extra == 'dev'
+Requires-Dist: mkl ; extra == 'dev'
+Requires-Dist: myst-parser ; extra == 'dev'
+Requires-Dist: numpydoc ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-copybutton ; extra == 'dev'
+Requires-Dist: sphinx-design ; extra == 'dev'
+Requires-Dist: sphinx-gallery ; extra == 'dev'
+Requires-Dist: sphinxcontrib-bibtex ; extra == 'dev'
+Requires-Dist: sphinxext-opengraph ; extra == 'dev'
+Requires-Dist: codecov ; extra == 'dev'
+Requires-Dist: pytest (>=6.0.0) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: kaleido ; extra == 'doc'
+Requires-Dist: plotly ; extra == 'doc'
+Requires-Dist: coverage ; extra == 'doc'
+Requires-Dist: flake8 ; extra == 'doc'
+Requires-Dist: furo ; extra == 'doc'
+Requires-Dist: memory-profiler ; extra == 'doc'
+Requires-Dist: mkl ; extra == 'doc'
+Requires-Dist: myst-parser ; extra == 'doc'
+Requires-Dist: numpydoc ; extra == 'doc'
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-copybutton ; extra == 'doc'
+Requires-Dist: sphinx-design ; extra == 'doc'
+Requires-Dist: sphinx-gallery ; extra == 'doc'
+Requires-Dist: sphinxcontrib-bibtex ; extra == 'doc'
+Requires-Dist: sphinxext-opengraph ; extra == 'doc'
+Provides-Extra: min
+Requires-Dist: joblib (==1.0.0) ; extra == 'min'
+Requires-Dist: nibabel (==3.2.0) ; extra == 'min'
+Requires-Dist: numpy (==1.19.0) ; extra == 'min'
+Requires-Dist: pandas (==1.1.5) ; extra == 'min'
+Requires-Dist: scikit-learn (==1.0.0) ; extra == 'min'
+Requires-Dist: scipy (==1.6.0) ; extra == 'min'
+Provides-Extra: plotly
+Requires-Dist: kaleido ; extra == 'plotly'
+Requires-Dist: plotly ; extra == 'plotly'
+Provides-Extra: plotting
+Requires-Dist: matplotlib (>=3.3.0) ; extra == 'plotting'
+Provides-Extra: test
+Requires-Dist: codecov ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: pytest (>=6.0.0) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+.. image:: https://img.shields.io/pypi/v/nilearn.svg
+    :target: https://pypi.org/project/nilearn/
+    :alt: Pypi Package
+
+.. image:: https://img.shields.io/pypi/pyversions/nilearn.svg
+    :target: https://pypi.org/project/nilearn/
+    :alt: PyPI - Python Version
+
+.. image:: https://github.com/nilearn/nilearn/workflows/build/badge.svg?branch=main&event=push
+   :target: https://github.com/nilearn/nilearn/actions
+   :alt: Github Actions Build Status
+
+.. image:: https://codecov.io/gh/nilearn/nilearn/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/nilearn/nilearn
+   :alt: Coverage Status
+
+.. image:: https://dev.azure.com/Parietal/Nilearn/_apis/build/status/nilearn.nilearn?branchName=main
+   :target: https://dev.azure.com/Parietal/Nilearn/_apis/build/status/nilearn.nilearn?branchName=main
+   :alt: Azure Build Status
+
+nilearn
+=======
+
+Nilearn enables approachable and versatile analyses of brain volumes. It provides statistical and machine-learning tools, with instructive documentation & friendly community.
+
+It supports general linear model (GLM) based analysis and leverages the `scikit-learn <https://scikit-learn.org>`_ Python toolbox for multivariate statistics with applications such as predictive modelling, classification, decoding, or connectivity analysis.
+
+Important links
+===============
+
+- Official source code repo: https://github.com/nilearn/nilearn/
+- HTML documentation (stable release): https://nilearn.github.io/
+
+Install
+=======
+
+Latest release
+--------------
+
+**1. Setup a virtual environment**
+
+We recommend that you install ``nilearn`` in a virtual Python environment,
+either managed with the standard library ``venv`` or with ``conda``
+(see `miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ for instance).
+Either way, create and activate a new python environment.
+
+With ``venv``:
+
+.. code-block:: bash
+
+    python3 -m venv /<path_to_new_env>
+    source /<path_to_new_env>/bin/activate
+
+Windows users should change the last line to ``\<path_to_new_env>\Scripts\activate.bat`` in order to activate their virtual environment.
+
+With ``conda``:
+
+.. code-block:: bash
+
+    conda create -n nilearn python=3.9
+    conda activate nilearn
+
+**2. Install nilearn with pip**
+
+Execute the following command in the command prompt / terminal
+in the proper python environment:
+
+.. code-block:: bash
+
+    python -m pip install -U nilearn
+
+Development version
+-------------------
+
+Please find all development setup instructions in the
+`contribution guide <https://nilearn.github.io/stable/development.html#setting-up-your-environment>`_.
+
+Check installation
+------------------
+
+Try importing nilearn in a python / iPython session:
+
+.. code-block:: python
+
+    import nilearn
+
+If no error is raised, you have installed nilearn correctly.
+
+Office Hours
+============
+
+The Nilearn team organizes regular online office hours to answer questions,
+discuss feature requests, or have any Nilearn-related discussions. Nilearn
+office hours occur *every Friday from 4pm to 5pm UTC*, and we make sure that at
+least one member of the core-developer team is available. These events are held
+on our on `Discord server <https://discord.gg/bMBhb7w>`_ and are fully open,
+anyone is welcome to join!
+For more information and ways to engage with the Nilearn team see
+`How to get help <https://nilearn.github.io/stable/development.html#how-to-get-help>`_.
+
+Dependencies
+============
+
+The required dependencies to use the software are listed in the file `nilearn/setup.cfg <https://github.com/nilearn/nilearn/blob/main/setup.cfg>`_.
+
+If you are using nilearn plotting functionalities or running the examples, matplotlib >= 3.0 is required.
+
+Some plotting functions in Nilearn support both matplotlib and plotly as plotting engines.
+In order to use the plotly engine in these functions, you will need to install both plotly and kaleido, which can both be installed with pip and anaconda.
+
+If you want to run the tests, you need pytest >= 3.9 and pytest-cov for coverage reporting.
+
+Development
+===========
+
+Detailed instructions on how to contribute are available at
+http://nilearn.github.io/stable/development.html
+
