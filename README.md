@@ -44,13 +44,13 @@ and -r (for how many DiCER repitions you wish to do) an example of this is:
 
 Each subject requires a long time to run, especially for pipelines using ICA-AROMA. If you have access to a cluster, example slurm parameters can be found at the top of each script.
 
-## Stats
-# QC_FC and VE1
+# Stats
+## QC_FC and VE1
 Once each subject has finished running you can collate the FC from pipelines into a .mat file with the following fields: ROIxROIxsubject
 Then you can run the QC_FC_VE1.m script to get all the stats, manual fields are required to be inputted at the top of the script.
 you need to collate the iterations required to achieve modularity maximisation into one file. In each subjects directory this is saved in a file $sub/func/opt_iters.txt
 
-# Kernel Ridge Regression
+## Kernel Ridge Regression
 The main script for this can be found in stats/KRR/run_KRR_repeats.m
 This will run a kernel ridge regression 20 seperate times based on the CBIG script CBIG_KRR_workflow_LITE.m a full breakdown of what files it expects and the parameters can be found in this file. 
 This kernel ridge regression is courtesy of the CBIG lab, and full credit goes to them! 
