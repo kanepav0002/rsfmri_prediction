@@ -1,0 +1,77 @@
+
+bibentry(bibtype="Article",
+         title       = "Unbiased Recursive Partitioning: A Conditional Inference Framework",
+         author      = c(person(given = "Torsten", family = "Hothorn", 
+                                email = "Torsten.Hothorn@R-project.org",
+                                comment = c(ORCID = "0000-0001-8301-0471")),
+                         person(given = "Kurt", family = "Hornik",
+                                email = "Kurt.Hornik@R-project.org",
+                                comment = c(ORCID = "0000-0003-4198-9911")),
+                         person(given = "Achim", family = "Zeileis", 
+                                email = "Achim.Zeileis@R-project.org",
+                                comment = c(ORCID = "0000-0003-0918-3766"))),
+         journal      = "Journal of Computational and Graphical Statistics",
+         year         = "2006",
+         volume       = "15",
+         number       = "3",
+         doi          =  "10.1198/106186006X133933",
+         pages        = "651--674",
+         mheader = "If ctree() is used additionally cite:"
+)
+
+bibentry(bibtype="Article",
+         title = "Model-Based Recursive Partitioning",
+         author      = c(person(given = "Achim", family = "Zeileis", 
+                                email = "Achim.Zeileis@R-project.org",
+                                comment = c(ORCID = "0000-0003-0918-3766")),
+                         person(given = "Torsten", family = "Hothorn", 
+                                email = "Torsten.Hothorn@R-project.org",
+                                comment = c(ORCID = "0000-0001-8301-0471")),
+                         person(given = "Kurt", family = "Hornik",
+                                email = "Kurt.Hornik@R-project.org",
+                                comment = c(ORCID = "0000-0003-4198-9911"))),
+         journal      = "Journal of Computational and Graphical Statistics",
+         year         = "2008",
+         volume       = "17",
+         number       = "2",
+         doi          = "10.1198/106186008X319331",
+         pages        = "492--514",
+         mheader = "If mob() is used additionally cite:"
+)
+
+bibentry(bibtype="Article",
+         title = "Survival Ensembles",
+         author = c(person("Torsten", "Hothorn"), person("Peter", "Buehlmann"),
+                    person("Sandrine", "Dudoit"), person("Annette", "Molinaro"),
+                    person("Mark", "Van Der Laan")),
+         journal      = "Biostatistics",
+         year         = "2006",
+         volume       = "7",
+         number       = "3",
+         pages        = "355--373",
+         doi          = "10.1093/biostatistics/kxj011",
+	 mheader = "If cforest() is used cite:"
+)
+
+bibentry(bibtype="Article",
+         title = "Bias in Random Forest Variable Importance Measures: Illustrations, Sources and a Solution",
+         author = c(person("Carolin", "Strobl"), person("Anne-Laure", "Boulesteix"),
+                    person("Achim", "Zeileis"), person("Torsten", "Hothorn")),
+         journal      = "BMC Bioinformatics",
+         year         = "2007",
+         volume       = "8",
+         number       = "25",
+         doi          = "10.1186/1471-2105-8-25"
+)
+
+bibentry(bibtype="Article",
+         title = "Conditional Variable Importance for Random Forests",
+         author = c(person("Carolin", "Strobl"), person("Anne-Laure", "Boulesteix"),
+	            person("Thomas", "Kneib"), person("Thomas", "Augustin"),
+                    person("Achim", "Zeileis")),
+         journal      = "BMC Bioinformatics",
+         year         = "2008",
+         volume       = "9",
+         number       = "307",
+         doi          = "10.1186/1471-2105-9-307"
+)
