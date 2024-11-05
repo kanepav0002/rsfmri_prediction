@@ -26,7 +26,7 @@ with the following labels: <br>
 
 After running fmriprep, and before the pipelines are run, the motion parameters and framewise displacements need to be extracted for each participant fmripreps list of confounds 
 put into each subjects functional directory and labelled as  prep_motion_params.par (for GSP and CNP) an example python script for this is in the utils folder
-and is labelled get_motion_from_fprep.py
+and is labelled `get_motion_from_fprep.py`
 
 For HCP the motion parameters are labelled as Movement_Regressors.txt and can just be copied into each subjects func folder.
 Framewise displacement adjusted for multiband data can then be calculated with the function `mband_powerFD.m`
