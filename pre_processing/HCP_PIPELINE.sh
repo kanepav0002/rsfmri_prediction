@@ -16,9 +16,10 @@ done
 
 # Manual inputs
 repo_directory='location the repo has been downloaded to'
-func_loc="subjects functional directory e.g. /home/CNP/$sub/func"
-anat_loc="subjects anatomical directory e.g. /home/CNP/$sub/anat"
+func_loc="subjects functional directory e.g. /home/HCP/$sub/func"
+anat_loc="subjects anatomical directory e.g. /home/HCP/$sub/anat"
 TR="TR of the fmri scan e.g. 3"
+TR_ms="TR of the fmri scan in ms"
 
 # Modules required - make sure these exist
 # Replace these with the module names in your cluster
@@ -119,7 +120,7 @@ fslmeants -i $func_loc/rfMRI_REST1_LR_hp2000_clean.nii.gz -o $func_loc/GS_post_f
 python get_p24_regs_HCP.py -s $sub -f $func_loc -m "not_this_time" -w $func_loc/WM_post_fix_ts.txt -c $func_loc/CSF_post_fix_ts.txt -g "not_this_time" -d "not_this_time"
 echo $func_loc/rfMRI_REST1_LR_hp2000_clean.nii.gz > $func_loc/tmp_fmri_list.txt
 echo $func_loc/FIX_24P_2P.nii.gz > $func_loc/tmp_out_list.txt
-echo $func_loc/p_24_2p_regs.csv > $func_loc/tmp_regs.txt
+echo $func_loc/curr_regs.csv > $func_loc/tmp_regs.txt
 echo $func_loc/no_censor.txt > $func_loc/tmp_c_frames_list.txt
 matlab -nodisplay -r "CBIG_glm_regress_vol('$func_loc/tmp_fmri_list.txt', '$func_loc/tmp_out_list.txt','$func_loc/tmp_regs.txt', '1', '$func_loc/tmp_c_frames_list.txt', '1', '0', '$repo_directory'); exit;"
 echo $func_loc/FIX_24P_2P_c.nii.gz > $func_loc/tmp_out_list.txt
@@ -129,7 +130,7 @@ matlab -nodisplay -r "CBIG_glm_regress_vol('$func_loc/tmp_fmri_list.txt', '$func
 python get_p24_regs_HCP.py -s $sub -f $func_loc -m "not_this_time" -w $func_loc/WM_post_fix_ts.txt -c $func_loc/CSF_post_fix_ts.txt -g $func_loc/GS_post_fix_ts.txt -d "not_this_time"
 echo $func_loc/rfMRI_REST1_LR_hp2000_clean.nii.gz > $func_loc/tmp_fmri_list.txt
 echo $func_loc/FIX_24P_2P_GS.nii.gz > $func_loc/tmp_out_list.txt
-echo $func_loc/p_24_2p_GS_regs.csv > $func_loc/tmp_regs.txt
+echo $func_loc/curr_regs.csv > $func_loc/tmp_regs.txt
 echo $func_loc/no_censor.txt > $func_loc/tmp_c_frames_list.txt
 matlab -nodisplay -r "CBIG_glm_regress_vol('$func_loc/tmp_fmri_list.txt', '$func_loc/tmp_out_list.txt','$func_loc/tmp_regs.txt', '1', '$func_loc/tmp_c_frames_list.txt', '1', '0', '$repo_directory'); exit;"
 echo $func_loc/FIX_24P_2P_GS_c.nii.gz > $func_loc/tmp_out_list.txt
@@ -137,8 +138,8 @@ echo $func_loc/censored_frames.txt > $func_loc/tmp_c_frames_list.txt
 matlab -nodisplay -r "CBIG_glm_regress_vol('$func_loc/tmp_fmri_list.txt', '$func_loc/tmp_out_list.txt','$func_loc/tmp_regs.txt', '1', '$func_loc/tmp_c_frames_list.txt', '1', '0', '$repo_directory'); exit;"
 
 # Scrub the data
-matlab -nodisplay -r "CBIG_preproc_censor_wrapper('$func_loc/FIX_24P_2P_GS_c.nii.gz', '$func_loc/censored_frames.txt', '3000', '$func_loc/tmp_interp_bold.nii.gz', '$func_loc/FIX_24P_2p_GS_cens.nii.gz', '$brain_mask', '10', '$repo_directory'); exit;"
-matlab -nodisplay -r "CBIG_preproc_censor_wrapper('$func_loc/FIX_24P_2P_c.nii.gz', '$func_loc/censored_frames.txt', '3000', '$func_loc/tmp_interp_bold.nii.gz', '$func_loc/FIX_24P_2P_cens.nii.gz', '$brain_mask', '10', '$repo_directory'); exit;"
+matlab -nodisplay -r "CBIG_preproc_censor_wrapper('$func_loc/FIX_24P_2P_GS_c.nii.gz', '$func_loc/censored_frames.txt', '$TR_ms', '$func_loc/tmp_interp_bold.nii.gz', '$func_loc/FIX_24P_2p_GS_cens.nii.gz', '$brain_mask', '10', '$repo_directory'); exit;"
+matlab -nodisplay -r "CBIG_preproc_censor_wrapper('$func_loc/FIX_24P_2P_c.nii.gz', '$func_loc/censored_frames.txt', '$TR_ms', '$func_loc/tmp_interp_bold.nii.gz', '$func_loc/FIX_24P_2P_cens.nii.gz', '$brain_mask', '10', '$repo_directory'); exit;"
 
 # Do DiCER
 cd $dicer_folder
@@ -149,7 +150,7 @@ sh DiCER_very_lightweight.sh -i FIX_24P_2P.nii.gz  -a ../anat/T1w_brain_interp.n
 mv $func_loc/"$sub"_dtissue_func.nii.gz $anat_loc/"$sub"_dtissue_func.nii.gz
 
 # Collate Regressors and get first derivatives.
-cd /home/kanep/kg98_scratch/Kane/fmri_code
+cd $repo_directory/pre_processing/utils
 
 for dic_num in $(seq 1 $reps); do
 
@@ -163,7 +164,7 @@ for dic_num in $(seq 1 $reps); do
 	echo $func_loc/censored_frames.txt > $func_loc/tmp_c_frames_list.txt
 	matlab -nodisplay -r "CBIG_glm_regress_vol('$func_loc/tmp_fmri_list.txt', '$func_loc/tmp_out_list.txt','$func_loc/tmp_regs.txt', '1', '$func_loc/tmp_c_frames_list.txt', '1', '0', '$repo_directory'); exit;"
 
-	matlab -nodisplay -r "CBIG_preproc_censor_wrapper('$func_loc/FIX_24P_2P_Dic"$dic_num"_c.nii.gz', '$func_loc/censored_frames.txt', '3000', '$func_loc/tmp_interp_bold.nii.gz', '$func_loc/FIX_24P_2P_Dic"$dic_num"_cens.nii.gz', '$brain_mask', '10', '$repo_directory'); exit;"
+	matlab -nodisplay -r "CBIG_preproc_censor_wrapper('$func_loc/FIX_24P_2P_Dic"$dic_num"_c.nii.gz', '$func_loc/censored_frames.txt', '$TR_ms', '$func_loc/tmp_interp_bold.nii.gz', '$func_loc/FIX_24P_2P_Dic"$dic_num"_cens.nii.gz', '$brain_mask', '10', '$repo_directory'); exit;"
 
 	matlab -nodisplay -r "bandpass_filter('$func_loc', 'FIX_24P_2P_Dic"$dic_num".nii.gz', '$brain_mask', '$TR', '0.008', '0.08', '$repo_directory'); exit;"
 	matlab -nodisplay -r "bandpass_filter('$func_loc', 'FIX_24P_2P_Dic"$dic_num"_cens.nii.gz', '$brain_mask', '$TR', '0.008', '0.08', '$repo_directory'); exit;"
