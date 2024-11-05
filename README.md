@@ -39,8 +39,8 @@ as the HCP data has undergone FIX seperately, and the GSP requires training base
 
 Each script requires manual input of the dataset location and functional parameters, these can be found at the top of each script.
 These scripts can be executed straight from the terminal with the inputs -s (for subject ID) 
-and -r (for how many DiCER repitions you wish to do) an example of this is:
-./AROMA_PIPELINE.sh -s "sub-1021" -r 10
+and -r (for how many DiCER repitions you wish to do) an example of this is:<br>
+`./AROMA_PIPELINE.sh -s "sub-1021" -r 10`
 
 Each subject requires a long time to run, especially for pipelines using ICA-AROMA. If you have access to a cluster, example slurm parameters can be found at the top of each script.
 
@@ -69,13 +69,13 @@ If you are using DiCER in your own work please cite the paper from the original 
 I have included a schaefer parcellation for ease of reproducability, but if you are using for your own work please download 
 the original parcellation files here: https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/brain_parcellation/Schaefer2018_LocalGlobal
 
-CBIG-master: https://github.com/ThomasYeoLab/CBIG
-fieldtrip-master: https://github.com/fieldtrip/fieldtrip
-fix: https://fsl.fmrib.ox.ac.uk/fsl/docs/#/resting_state/fix_matlab
-ICA-AROMA-master: https://github.com/maartenmennes/ICA-AROMA
-linden_rsfmri: https://github.com/lindenmp/rs-fMRI
-REST-master: https://github.com/Chaogan-Yan/REST
-spm8: https://github.com/spm/spm8
+CBIG-master: https://github.com/ThomasYeoLab/CBIG<br>
+fieldtrip-master: https://github.com/fieldtrip/fieldtrip<br>
+fix: https://fsl.fmrib.ox.ac.uk/fsl/docs/#/resting_state/fix_matlab<br>
+ICA-AROMA-master: https://github.com/maartenmennes/ICA-AROMA<br>
+linden_rsfmri: https://github.com/lindenmp/rs-fMRI<br>
+REST-master: https://github.com/Chaogan-Yan/REST<br>
+spm8: https://github.com/spm/spm8<br>
 
 
 
