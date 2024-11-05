@@ -14,7 +14,7 @@ The python environment is included in this repository and will be loaded with th
 For CNP and GSP data fmriprep needs to be run on the data before applying the pipeline scripts. 
 The scripts will work with the outputs produced by fmriprep, the files needed are:<br>
 `$sub/func/""$sub"_task-rest_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz"` <br>
-'$sub/anat/"$sub"_desc-preproc_T1w.nii.gz"' <br>
+`$sub/anat/"$sub"_desc-preproc_T1w.nii.gz"` <br>
 `$sub/func/""$sub"_task-rest_desc-confounds_timeseries.tsv"` <br>
 
 For HCP the data needs to be organised into a BIDS directory with the nifti rest sessions and T1w image from the MNINonLinear HCP folder.
